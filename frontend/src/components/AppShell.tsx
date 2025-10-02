@@ -1,27 +1,27 @@
-import { useState } from 'react';
-import { Button } from './ui/button';
-import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { 
-  Home, 
-  Database, 
-  Activity, 
-  FlaskConical, 
-  BarChart3, 
-  Zap, 
-  FileText, 
-  Book, 
-  User, 
-  Search, 
-  Bell, 
-  HelpCircle, 
-  Sun, 
-  Moon, 
+import { useState } from "react";
+import { Button } from "./ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import {
+  Home,
+  Database,
+  Activity,
+  FlaskConical,
+  BarChart3,
+  Zap,
+  FileText,
+  Book,
+  User,
+  Search,
+  Bell,
+  HelpCircle,
+  Sun,
+  Moon,
   Menu,
   ChevronLeft,
   ChevronRight,
-  Trash2
-} from 'lucide-react';
-import { cn } from './ui/utils';
+  Trash2,
+} from "lucide-react";
+import { cn } from "./ui/utils";
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -32,28 +32,36 @@ interface AppShellProps {
 }
 
 const navigationItems = [
-  { id: 'home', label: 'Home', icon: Home },
-  { id: 'datasets', label: 'Datasets', icon: Database },
-  { id: 'light-curves', label: 'Light Curves', icon: Activity },
-  { id: 'model-lab', label: 'Model Lab', icon: FlaskConical },
-  { id: 'experiments', label: 'Experiments', icon: BarChart3 },
-  { id: 'predict', label: 'Predict', icon: Zap },
-  { id: 'reset', label: 'Reset Data', icon: Trash2 },
-  { id: 'reports', label: 'Reports', icon: FileText },
-  { id: 'docs', label: 'Docs & Learn', icon: Book },
-  { id: 'account', label: 'Account', icon: User },
+  { id: "home", label: "Home", icon: Home },
+  { id: "datasets", label: "Datasets", icon: Database },
+  { id: "light-curves", label: "Light Curves", icon: Activity },
+  { id: "model-lab", label: "Model Lab", icon: FlaskConical },
+  { id: "experiments", label: "Experiments", icon: BarChart3 },
+  { id: "predict", label: "Predict", icon: Zap },
+  { id: "reset", label: "Reset Data", icon: Trash2 },
+  { id: "reports", label: "Reports", icon: FileText },
+  { id: "docs", label: "Docs & Learn", icon: Book },
+  { id: "account", label: "Account", icon: User },
 ];
 
-export function AppShell({ children, activeSection, onSectionChange, isDark, onThemeToggle }: AppShellProps) {
+export function AppShell({
+  children,
+  activeSection,
+  onSectionChange,
+  isDark,
+  onThemeToggle,
+}: AppShellProps) {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  
+
   return (
     <div className={cn("h-screen flex", isDark && "dark")}>
       {/* Desktop Sidebar */}
-      <aside className={cn(
-        "hidden lg:flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300",
-        isCollapsed ? "w-16" : "w-72"
-      )}>
+      <aside
+        className={cn(
+          "hidden lg:flex flex-col bg-sidebar border-r border-sidebar-border transition-all duration-300",
+          isCollapsed ? "w-16" : "w-72"
+        )}
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-sidebar-border">
           {!isCollapsed && (
@@ -61,7 +69,9 @@ export function AppShell({ children, activeSection, onSectionChange, isDark, onT
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                 <Activity className="w-5 h-5 text-primary-foreground" />
               </div>
-              <span className="text-lg font-semibold text-sidebar-foreground">ExoScope</span>
+              <span className="text-lg font-semibold text-sidebar-foreground">
+                CosmicX
+              </span>
             </div>
           )}
           <Button
@@ -70,7 +80,11 @@ export function AppShell({ children, activeSection, onSectionChange, isDark, onT
             onClick={() => setIsCollapsed(!isCollapsed)}
             className="text-sidebar-foreground hover:bg-sidebar-accent"
           >
-            {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+            {isCollapsed ? (
+              <ChevronRight className="w-4 h-4" />
+            ) : (
+              <ChevronLeft className="w-4 h-4" />
+            )}
           </Button>
         </div>
 
@@ -80,14 +94,15 @@ export function AppShell({ children, activeSection, onSectionChange, isDark, onT
             {navigationItems.map((item) => {
               const Icon = item.icon;
               const isActive = activeSection === item.id;
-              
+
               return (
                 <li key={item.id}>
                   <Button
                     variant={isActive ? "secondary" : "ghost"}
                     className={cn(
                       "w-full justify-start text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
-                      isActive && "bg-sidebar-accent text-sidebar-accent-foreground",
+                      isActive &&
+                        "bg-sidebar-accent text-sidebar-accent-foreground",
                       isCollapsed && "px-2"
                     )}
                     onClick={() => onSectionChange(item.id)}
@@ -125,7 +140,7 @@ export function AppShell({ children, activeSection, onSectionChange, isDark, onT
                   {navigationItems.map((item) => {
                     const Icon = item.icon;
                     const isActive = activeSection === item.id;
-                    
+
                     return (
                       <li key={item.id}>
                         <Button
@@ -148,8 +163,8 @@ export function AppShell({ children, activeSection, onSectionChange, isDark, onT
           <div className="flex-1 max-w-md mx-4">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder="Search datasets, experiments..."
                 className="w-full pl-10 pr-4 py-2 bg-input-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
               />
@@ -165,7 +180,11 @@ export function AppShell({ children, activeSection, onSectionChange, isDark, onT
               <Bell className="w-5 h-5" />
             </Button>
             <Button variant="ghost" size="sm" onClick={onThemeToggle}>
-              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {isDark ? (
+                <Sun className="w-5 h-5" />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
             </Button>
             <Button variant="ghost" size="sm">
               <User className="w-5 h-5" />
@@ -174,9 +193,7 @@ export function AppShell({ children, activeSection, onSectionChange, isDark, onT
         </header>
 
         {/* Content */}
-        <main className="flex-1 overflow-auto">
-          {children}
-        </main>
+        <main className="flex-1 overflow-auto">{children}</main>
       </div>
     </div>
   );
