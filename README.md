@@ -181,7 +181,63 @@ The platform supports CSV files with mission-specific columns:
 
 ## 🖼️ Screenshots
 
-*Screenshots will be added manually*
+### Project Methodology
+![NASA Space Apps 2025 Methodology](Screenshot/NASA%20Space%20Apps%202025%20Methology.pptx.jpg)
+*Project Methodology and Approach - NASA Space Apps 2025*
+
+### Application Interface
+
+#### Home Page
+
+*Main landing page of the CosmicX application*
+
+![Home Dashboard](Screenshot/home.png)
+*Home dashboard with navigation and overview*
+
+#### Dataset Management
+
+![Dataset List](Screenshot/dataset%20list.png)
+*List of available datasets for different missions*
+
+![Dataset Upload](Screenshot/dataset%20upload.png)
+*Dataset upload interface for CSV files*
+
+#### Light Curves Visualization
+![Light Curves](Screenshot/light%20Curves.png)
+*Light curves visualization and analysis interface*
+
+#### Model Training
+![Model Training](Screenshot/model%20train.png)
+*Model training interface with configuration options*
+
+#### Prediction Interface
+![Prediction Interface](Screenshot/predict.png)
+*Exoplanet prediction interface*
+
+### Model Performance Metrics
+
+#### Kepler Mission Results
+![Kepler Confusion Matrix](Screenshot/kepler-confision.png)
+*Confusion Matrix for Kepler Mission Model Performance*
+
+![Kepler ROC Curve](Screenshot/kepler-ROC.png)
+*ROC Curve for Kepler Mission Model Performance*
+
+#### K2 Mission Results
+![K2 Confusion Matrix](Screenshot/k2-confision.png)
+*Confusion Matrix for K2 Mission Model Performance*
+
+![K2 ROC Curve](Screenshot/k2-ROC.png)
+*ROC Curve for K2 Mission Model Performance*
+
+#### TESS Mission Results
+![TESS Confusion Matrix](Screenshot/TESS-Confision.png)
+*Confusion Matrix for TESS Mission Model Performance*
+
+![TESS ROC Curve](Screenshot/TESS-ROC.png)
+*ROC Curve for TESS Mission Model Performance*
+
+
 
 ## 🤝 Contributing
 
@@ -205,8 +261,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For questions or support, please contact:
 - **Team Leader**: Abdus Samad
-- **Email**: [contact-email]
-- **Project Repository**: [repository-url]
+- **Email**: abdussamad018@gmail.com
+
 
 ---
 
